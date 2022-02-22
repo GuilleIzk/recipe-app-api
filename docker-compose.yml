@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  app:
+    #user: $UID:$GID
+    build:
+      context: .       # . indica el directorio actual
+    ports:
+      - "8000:8000"    #8000 desde el puerto y 8000 desde el host(yo)
+    volumes:           #volumen --> permite obtener las actualizaciones q hacemos al proyecto en la "imagen" del docker en tiempo real
+      - ./app:/app     #asigna el directorio de app al directorio de app en la imagen del docker
+    command: >         #comando para ejecutar la aplicacion en el contenedor docker # > es para indicar q lo q esta en la linea de abajo va en esta linea
+      sh -c "python manage.py runserver 0.0.0.0:8000"
