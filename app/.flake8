@@ -4,3 +4,4 @@ exclude =
     _pycache_.
     manage.py,
     settings.py
+    
